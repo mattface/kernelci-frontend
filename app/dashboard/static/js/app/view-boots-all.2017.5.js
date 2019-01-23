@@ -48,6 +48,7 @@ require([
         'defconfig_full',
         'git_branch',
         'job',
+        'build_environment',
         'kernel',
         'lab_name',
         'status'
@@ -196,6 +197,12 @@ require([
                     title: 'Arch.',
                     type: 'string',
                     className: 'arch-column'
+                },
+                {
+                    data: 'build_environment',
+                    title: 'Build Environment',
+                    type: 'string',
+                    className: 'build-environment-column'
                 },
                 {
                     data: 'lab_name',

@@ -630,8 +630,7 @@ require([
         var bootLog;
         var bootTime;
         var branch;
-        var compiler;
-        var compilerVersion;
+        var buildEnvironment;
         var compilerVersionFull;
         var createdOn;
         var crossCompile;
@@ -690,10 +689,9 @@ require([
         qemuCommand = result.qemu_command;
         soc = result.mach;
 
-        compiler = result.compiler;
-        compilerVersion = result.compiler_version;
         compilerVersionFull = result.compiler_version_full;
         crossCompile = result.cross_compile;
+        buildEnvironment = result.build_environment;
 
         if (!serverURL) {
             serverURL = gFileServer;
@@ -999,25 +997,6 @@ require([
                 html.nonavail());
         }
 
-        if (compiler) {
-            html.replaceContent(
-                document.getElementById('compiler'),
-                document.createTextNode(compiler));
-        } else {
-            html.replaceContent(
-                document.getElementById('compiler'), html.nonavail());
-        }
-
-        if (compilerVersion) {
-            html.replaceContent(
-                document.getElementById('compiler-version'),
-                document.createTextNode(compilerVersion));
-        } else {
-            html.replaceContent(
-                document.getElementById('compiler-version'),
-                html.nonavail());
-        }
-
         if (compilerVersionFull) {
             html.replaceContent(
                 document.getElementById('compiler-version-full'),
@@ -1027,6 +1006,17 @@ require([
                 document.getElementById('compiler-version-full'),
                 html.nonavail());
         }
+
+        if (buildEnvironment) {
+            html.replaceContent(
+                document.getElementById('build-environment'),
+                document.createTextNode(buildEnvironment));
+        } else {
+            html.replaceContent(
+                document.getElementById('build-environment'),
+                html.nonavail());
+        }
+
 
         if (dtb) {
             docFrag = document.createDocumentFragment();
